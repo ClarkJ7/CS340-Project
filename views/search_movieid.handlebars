@@ -1,0 +1,26 @@
+<table class="outputTable">
+	<thead>
+		<th>Movie ID</th>
+		<th>Title</th>
+		<th>Franchise</th>
+		<th>Genre</th>
+		<th>Budget</th>
+		<th>Revenue</th>
+		<th>Director</th>
+		<th>Studio</th>
+	</thead>
+	<tbody>
+		{{#each movies}}
+		<tr>
+			<td>{{this.movie_id}}</td>
+			<td>{{this.movie_title}}</td>
+			<td>{{this.franchise}}</td>
+			<td>{{this.genre}}</td>
+			<td>{{this.budget}}</td>
+			<td>{{this.revenue}}</td>
+			<td>{{this.director}}</td>
+			<td>{{this.studio_name}}</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>

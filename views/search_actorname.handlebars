@@ -1,0 +1,18 @@
+<table class="outputTable">
+	<thead>
+		<th>Name</th>
+		<th>Nationality</th>
+		<th>DOB</th>
+		<th>Credited Roles</th>
+	</thead>
+	<tbody>
+		{{#each actors}}
+		<tr>
+			<td>{{this.actor_name}}</td>
+			<td>{{this.nationality}}</td>
+			<td>{{this.dob}}</td>
+			<td>{{this.credited_roles}}</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>

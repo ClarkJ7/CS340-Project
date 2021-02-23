@@ -1,0 +1,19 @@
+<h2>Studios</h2>
+<table class="outputTable">
+	<thead>
+	<tr>
+		<th>Name</th>
+		<th>Founding Date</th>
+		<th>HQ Location</th>
+	</tr>
+	</thead>
+	<tbody>
+		{{#each studios}}
+		<tr>
+			<td>{{this.name}}</td>
+			<td>{{this.founding_date}}</td>
+			<td>{{this.hq_location}}</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>

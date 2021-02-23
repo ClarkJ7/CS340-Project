@@ -1,0 +1,19 @@
+<h2>Characters</h2>
+<table class="outputTable">
+	<thead>
+	<tr>
+		<th>Name</th>
+		<th>Is Villain?</th>
+		<th>Creation Date</th>
+	</tr>
+	</thead>
+	<tbody>
+		{{#each characters}}
+		<tr>
+			<td>{{this.character_name}}</td>
+			<td>{{this.is_villain}}</td>
+			<td>{{this.creation_date}}</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>

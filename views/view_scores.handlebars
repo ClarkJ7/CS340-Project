@@ -1,0 +1,21 @@
+<h2>Scores</h2>
+<table class="outputTable">
+	<thead>
+	<tr>
+		<th>Movie ID</th>
+		<th>IMDB</th>
+		<th>RT Critic</th>
+		<th>RT Audience</th>
+	</tr>
+	</thead>
+	<tbody>
+		{{#each scores}}
+		<tr>
+			<td>{{this.movie_id}}</td>
+			<td>{{this.imdb}}</td>
+			<td>{{this.rt_critic}}</td>
+			<td>{{this.rt_audience}}</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>

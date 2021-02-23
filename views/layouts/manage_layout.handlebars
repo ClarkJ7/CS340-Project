@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Data</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+  <div class="banner">
+    <h1>Search Data</h1>
+  </div>
+
+  <div class="navigationMenu">
+    <a href="/search">Search Data</a>
+    <a class="activeNav" href="/manage">Manage Data</a>
+    <a href="/view">View Data</a>
+  </div>
+
+<br><br><br><br>
+
+<div class="manageForm">
+  <h2>Movies:</h2>
+  <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageMovie" method="POST">
+    <label>Movie ID:</label>
+    <input type="number" name="movieID"><br>
+    <label>Title:</label>
+    <input type="text" name="movieTitle"><br>
+    <label>Franchise:</label>
+    <input type="text" name="movieFranchise"><br>
+    <label>Genre:</label>
+    <input type="text" name="movieGenre"><br>
+    <label>Budget:</label>
+    <input type="number" name="movieBudget"><br>
+    <label>Revenue:</label>
+    <input type="number" name="movieRevenue"><br>
+    <label>Director:</label>
+    <input type="text" name="movieDirector"><br>
+    <label>Studio:</label>
+    <input type="text" name="movieStudio"><br><br>
+
+    <input type="submit" name="iMovie" value="Insert Movie">
+    <input type="submit" name="uMovie" value="Update Movie">
+    <input type="submit" name="dMovie" value="Delete Movie">
+    <br><br>
+  </form>
+</div><br>
+
+<div class="manageForm">
+  <h2>Characters:</h2>
+  <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageCharacter" method="POST">
+    <label>Name:</label>
+    <input placeholder="Name" name="charName"><br>
+    <label>Are they a Villain?</label>
+    <input type="checkbox" name="charVillain"><br>
+    <label>Creation Date:</label>
+    <input type="date" name="charDate"><br><br>
+
+    <input type="submit" name="iChar" value="Insert Character">
+    <input type="submit" name="uChar" value="Update Character">
+    <input type="submit" name="dChar" value="Delete Character">
+    <br><br>
+  </form>
+</div><br>
+
+<div class="manageForm">
+  <h2>Actors:</h2>
+  <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageActor" method="POST">
+    <label>Name:</label>
+    <input type="text" name="actorName"><br>
+    <label>Gender:</label>
+    <input type="text" name="actorGender"><br>
+    <label>Nationality:</label>
+    <input type="text" name="actorNation"><br>
+    <label>Date of Birth:</label>
+    <input type="date" name="actorDOB"><br>
+    <label># of Roles:</label>
+    <input type="number" name="actorRoles"><br><br>
+
+    <input type="submit" name="iActor" value="Insert Actor">
+    <input type="submit" name="uActor" value="Update Actor">
+    <input type="submit" name="dActor" value="Delete Actor">
+    <br><br>
+  </form>
+</div><br>
+
+<div class="manageForm">
+  <h2>Roles:</h2>
+  <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageRoles" method="POST">
+    <label>Movie ID:</label>
+    <input type="text" name="roleMovie"><br>
+    <label>Actor:</label>
+    <input type="text" name="roleActor"><br>
+    <label>Character:</label>
+    <input type="text" name="roleChar"><br>
+    <label>Main Role?</label>
+    <input type="checkbox" name="roleMain"><br><br>
+
+    <input type="submit" name="iRole" value="Insert Role">
+    <input type="submit" name="uRole" value="Update Role">
+    <input type="submit" name="dRole" value="Delete Role">
+    <br><br>
+  </form>
+</div><br>
+
+<div class="manageForm">
+  <h2>Studios:</h2>
+  <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageStudios" method="POST">
+    <label>Name:</label>
+    <input type="text" name="studioName"><br>
+    <label>HQ Location:</label>
+    <input type="text" name="studioHQ"><br>
+    <label>Date Founded:</label>
+    <input type="date" name="studioDate"><br><br>
+    
+    <input type="submit" name="iStudio" value="Insert Studio">
+    <input type="submit" name="uStudio" value="Update Studio">
+    <input type="submit" name="dStudio" value="Delete Studio">
+    <br><br>
+  </form>
+</div><br>
+
+<div class="manageForm">
+  <h2>Scores:</h2>
+  <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageScores" method="POST">
+    <label>Movie ID:</label>
+    <input type="text" name="scoreID"><br>
+    <label>IMDB Score:</label>
+    <input type="number" name="scoreIMDB"><br>
+    <label>Rotten Tomatoes Critic Score:</label>
+    <input type="number" name="scoreRTC"><br>
+    <label>Rotten Tomatoes Audience Score:</label>
+    <input type="number" name="scoreRTA"><br><br>
+
+    <input type="submit" name="iScore" value="Insert Score">
+    <input type="submit" name="uScore" value="Update Score">
+    <input type="submit" name="dScore" value="Delete Score">
+    <br><br>
+  </form>
+</div><br>
+<div class="forms">
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Data</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+  <div class="banner">
+    <h1>Search Data</h1>
+  </div>
+
+  <div class="navigationMenu">
+    <a class="activeNav" href="/search">Search Data</a>
+    <a href="/manage">Manage Data</a>
+    <a href="/view">View Data</a>
+  </div>
+
+<br><br><br><br>
+
+<div class="searchForm">
+  <h2>Movie Search:</h2>
+  <form action="http://flip1.engr.oregonstate.edu:6547/search/movieSearch" method="get">
+    <table>
+      <tr>
+        <td>
+          <label>By Title:</label>
+            <input type="text" name="titleSearch">
+          <input type="submit" value="Search">
+        </td>
+        <td>
+          <label>By ID:</label>
+            <input type="text" name="idSearch">
+          <input type="submit" value="Search">
+        </td>
+        <td>
+          <label>By Director:</label>
+            <input type="text" name="directorSearch">
+          <input type="submit" value="Search">
+        </td>
+        </tr>
+    </table>
+  </form>
+  <br>
+</div><br>
+
+<div class="searchForm">
+  <h2>Actor Search:</h2>
+  <form action="http://flip1.engr.oregonstate.edu:6547/search/actorSearch" method="get">
+    <table>
+      <tr>
+        <td>
+          <label>By Name:</label>
+            <input type="text" name="actorSearch">
+          <input type="submit" value="Search">
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        </tr>
+    </table>
+  </form>
+  <br>
+</div><br>
+
+<div class="searchForm">
+  <h2>Character Search:</h2>
+  <form action="http://flip1.engr.oregonstate.edu:6547/search/characterSearch" method="get">
+    <table>
+      <tr>
+        <td>
+          <label>By Name:</label>
+            <input type="text" name="characterSearch">
+          <input type="submit" value="Search">
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        </tr>
+    </table>
+  </form>
+  <br>
+</div>
+<br>
+<div class="searchForm">
+  <div class="viewSearchTable">
+    <h2>Search Results:</h2>
+      {{{body}}}
+      <br>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<h2>Roles</h2>
+<table class="outputTable">
+	<thead>
+	<tr>
+		<th>Movie ID</th>
+		<th>Character</th>
+		<th>Actor</th>
+		<th>Main Role?</th>
+	</tr>
+	</thead>
+	<tbody>
+		{{#each roles}}
+		<tr>
+			<td>{{this.movie_id}}</td>
+			<td>{{this.character_name}}</td>
+			<td>{{this.actor_name}}</td>
+			<td>{{this.main_role}}</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
