@@ -15,15 +15,13 @@ router.get('/', function (req, res) {
 
 router.post('/manageMovie', function (req, res) {
 	if (!req.body.movieID) {
-		console.log("No movie, role not added")
-		return; 
+		var movieID = null
 	} else {
 		var movieID = req.body.movieID
 	};
 
 	if (!req.body.movieTitle) {
-		console.log("No title, movie not added")
-		return; 
+		var movieTitle = null
 	} else {
 		var movieTitle = req.body.movieTitle
 	};
@@ -65,6 +63,10 @@ router.post('/manageMovie', function (req, res) {
 	};
 
 	if (req.body.iMovie) {
+		if (movieID == null || movieTitle == null) {
+			console.log("Missing required input, not inserted")
+			return;
+		}
 		var sql = "INSERT INTO movies (movie_id, movie_title, franchise, genre, budget, revenue, director, studio_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     	mysql.pool.query(sql, [movieID, movieTitle, movieFranchise, movieGenre, movieBudget, movieRevenue, movieDirector, movieStudio], function(err, rows, fields) {
 			if(err){
@@ -76,6 +78,10 @@ router.post('/manageMovie', function (req, res) {
     })};
 
     if (req.body.uMovie) {
+    	if (movieID == null) {
+			console.log("Missing required input, not updated")
+			return;
+		}
 		var sql = "UPDATE movies SET movie_title, franchise, genre, budget, revenue, director, studio_name WHERE movie_id = ?";
     	mysql.pool.query(sql, [ movieTitle, movieFranchise, movieGenre, movieBudget, movieRevenue, movieDirector, movieStudio, movieID], function(err, rows, fields) {
 			if(err){
@@ -86,6 +92,10 @@ router.post('/manageMovie', function (req, res) {
     })};
   	
 	if (req.body.dMovie) {
+		if (movieID == null) {
+			console.log("Missing required input, not deleted")
+			return;
+		}
 		var sql = "DELETE FROM movies WHERE movie_id = ?";
     	mysql.pool.query(sql, [movieID], function(err, rows, fields) {
 			if(err){
@@ -98,8 +108,7 @@ router.post('/manageMovie', function (req, res) {
 
 router.post('/manageCharacter', function (req, res) {
 	if (!req.body.charName) {
-		console.log("No name, character not added")
-		return; 
+		var charName = null
 	} else {
 		var charName = req.body.charName
 	};
@@ -111,13 +120,16 @@ router.post('/manageCharacter', function (req, res) {
 	};
 
 	if (!req.body.charDate) {
-		console.log("No date, character not added")
-		return; 
-	} else {
+		var charDate = null 
+	} else {  
 		var charDate = req.body.charDate
 	};
 
 	if (req.body.iChar) {
+		if (charName == null || charDate == null) {
+			console.log("Missing required input, not updated")
+			return;
+		}
 		var sql = "INSERT INTO characters (character_name, is_villain, creation_date) VALUES (?, ?, ?)";
     	mysql.pool.query(sql, [charName, charVillain, charDate], function(err, rows, fields) {
 			if(err){
@@ -129,6 +141,10 @@ router.post('/manageCharacter', function (req, res) {
     })};
 
     if (req.body.uChar) {
+    	if (charName == null || charDate == null) {
+			console.log("Missing required input, not updated")
+			return;
+		}
 		var sql = "UPDATE characters SET is_villain = ?, creation_date = ? WHERE character_name = ?";
     	mysql.pool.query(sql, [charVillain, charDate, charName], function(err, rows, fields) {
 			if(err){
@@ -139,6 +155,10 @@ router.post('/manageCharacter', function (req, res) {
     })};
   	
 	if (req.body.dChar) {
+		if (charName == null) {
+			console.log("Missing required input, not updated")
+			return;
+		}
 		var sql = "DELETE FROM characters WHERE character_name = ?";
     	mysql.pool.query(sql, [charName], function(err, rows, fields) {
 			if(err){
@@ -151,42 +171,41 @@ router.post('/manageCharacter', function (req, res) {
 
 router.post('/manageActor', function (req, res) {
 	if (!req.body.actorName) {
-		console.log("No name, actor not added")
-		return; 
+		var actorName = null 
 	} else {
 		var actorName = req.body.actorName
 	};
 
 	if (!req.body.actorGender) {
-		console.log("No gender, actor not added")
-		return; 
+		var actorGender = null
 	} else {
 		var actorGender = req.body.actorGender
 	};
 
 	if (!req.body.actorNation) {
-		console.log("No nationality, actor not added")
-		return; 
+		var actorNation = null 
 	} else {
 		var actorNation = req.body.actorNation
 	};
 
 	if (!req.body.actorDOB) {
-		console.log("No dob, actor not added")
-		return; 
+		var actorDOB = null
 	} else {
 		var actorDOB = req.body.actorDOB
 	};
 
 	if (!req.body.actorRoles) {
-		console.log("No roles, actor not added")
-		return; 
+		var actorRoles = null
 	} else {
 		var actorRoles = req.body.actorRoles
 	};
 
 
 	if (req.body.iActor) {
+		if (actorName == null || actorNation == null || actorDOB == null || actorGender == null || actorRoles == null) {
+			console.log("Missing required input, not inserted")
+			return;
+		}
 		var sql = "INSERT INTO actors (actor_name, gender, nationality, dob, credited_roles) VALUES (?, ?, ?, ?, ?)";
     	mysql.pool.query(sql, [actorName, actorGender, actorNation, actorDOB, actorRoles], function(err, rows, fields) {
 			if(err){
@@ -198,6 +217,10 @@ router.post('/manageActor', function (req, res) {
     })};
 
     if (req.body.uActor) {
+    	if (actorName == null || actorNation == null || actorDOB == null || actorGender == null || actorRoles == null) {
+			console.log("Missing required input, not updated")
+			return;
+		}
 		var sql = "UPDATE actors SET gender = ?, nationality = ?, dob = ?, credited_roles = ? WHERE actor_name = ?";
     	mysql.pool.query(sql, [actorGender, actorNation, actorDOB, actorRoles, actorName], function(err, rows, fields) {
 			if(err){
@@ -208,6 +231,10 @@ router.post('/manageActor', function (req, res) {
     })};
   	
 	if (req.body.dActor) {
+		if (actorName == null) {
+			console.log("Missing required input, not deleted")
+			return;
+		}
 		var sql = "DELETE FROM actors WHERE actor_name = ?";
     	mysql.pool.query(sql, [actorName], function(err, rows, fields) {
 			if(err){
@@ -220,8 +247,7 @@ router.post('/manageActor', function (req, res) {
 
 router.post('/manageRoles', function (req, res) {
 	if (!req.body.roleMovie) {
-		console.log("No movie, role not added")
-		return; 
+		var roleMovie = null 
 	} else {
 		var roleMovie = req.body.roleMovie
 	};
@@ -233,8 +259,7 @@ router.post('/manageRoles', function (req, res) {
 	};
 
 	if (!req.body.roleChar) {
-		console.log("No character, role not added")
-		return; 
+		var roleChar = null
 	} else {
 		var roleChar = req.body.roleChar
 	};
@@ -247,6 +272,10 @@ router.post('/manageRoles', function (req, res) {
 
 
 	if (req.body.iRole) {
+		if (roleMovie == null || roleChar == null) {
+			console.log("Missing required input, not inserted")
+			return;
+		}
 		var sql = "INSERT INTO roles (movie_id, actor_name, character_name, main_role) VALUES (?, ?, ?, ?)";
     	mysql.pool.query(sql, [roleMovie, roleActor, roleChar, roleMain], function(err, rows, fields) {
 			if(err){
@@ -258,6 +287,10 @@ router.post('/manageRoles', function (req, res) {
     })};
 
     if (req.body.uRole) {
+    	if (roleMovie == null || roleChar == null) {
+			console.log("Missing required input, not updated")
+			return;
+		}
 		var sql = "UPDATE roles SET actor_name, main_role WHERE movie_id = ? AND character_name = ?";
     	mysql.pool.query(sql, [roleActor, roleMain, roleMovie, roleChar], function(err, rows, fields) {
 			if(err){
@@ -268,6 +301,10 @@ router.post('/manageRoles', function (req, res) {
     })};
   	
 	if (req.body.dRole) {
+		if (roleMovie == null || roleChar == null) {
+			console.log("Missing required input, not deleted")
+			return;
+		}
 		var sql = "DELETE FROM roles WHERE movie_id = ? AND character_name = ?";
     	mysql.pool.query(sql, [roleMovie, roleChar], function(err, rows, fields) {
 			if(err){
@@ -280,8 +317,7 @@ router.post('/manageRoles', function (req, res) {
 
 router.post('/manageStudios', function (req, res) {
 	if (!req.body.studioName) {
-		console.log("No name, studio not added")
-		return; 
+		var studioName = null
 	} else {
 		var studioName = req.body.studioName
 	};
@@ -293,13 +329,16 @@ router.post('/manageStudios', function (req, res) {
 	};
 
 	if (!req.body.studioDate) {
-		console.log("No date, studio not added")
-		return; 
+		var studioDate = null
 	} else {
 		var studioDate = req.body.studioDate
 	};
 
 	if (req.body.iStudio) {
+		if (studioName == null || studioHQ == null || studioDate == null) {
+			console.log("Missing required input, not inserted")
+			return;
+		}
 		var sql = "INSERT INTO studios (name, hq_location, founding_date) VALUES (?, ?, ?)";
     	mysql.pool.query(sql, [studioName, studioHQ, studioDate], function(err, rows, fields) {
 			if(err){
@@ -311,6 +350,10 @@ router.post('/manageStudios', function (req, res) {
     })};
 
     if (req.body.uStudio) {
+    	if (studioName == null || studioHQ == null || studioDate == null) {
+			console.log("Missing required input, not updated")
+			return;
+		}
 		var sql = "UPDATE studios SET hq_location, founding_date WHERE name = ?";
     	mysql.pool.query(sql, [roleActor, roleMain, roleMovie, roleChar], function(err, rows, fields) {
 			if(err){
@@ -321,6 +364,10 @@ router.post('/manageStudios', function (req, res) {
     })};
   	
 	if (req.body.dStudio) {
+		if (studioName == null) {
+			console.log("Missing required input, not deleted")
+			return;
+		}
 		var sql = "DELETE FROM studios WHERE name = ?";
     	mysql.pool.query(sql, [studioName], function(err, rows, fields) {
 			if(err){
@@ -333,8 +380,7 @@ router.post('/manageStudios', function (req, res) {
 
 router.post('/manageScores', function (req, res) {
 	if (!req.body.scoreID) {
-		console.log("No ID, score not added")
-		return; 
+		var scoreID = null
 	} else {
 		var scoreID = req.body.scoreID
 	};
@@ -358,6 +404,10 @@ router.post('/manageScores', function (req, res) {
 	};
 
 	if (req.body.iStudio) {
+		if (scoreID == null) {
+			console.log("Missing required input, not inserted")
+			return;
+		}
 		var sql = "INSERT INTO scores (movie_id, imdb, rt_critic, rt_audience) VALUES (?, ?, ?, ?)";
     	mysql.pool.query(sql, [scoreID, scoreIMDB, scoreRTC, scoreRTA], function(err, rows, fields) {
 			if(err){
@@ -369,6 +419,10 @@ router.post('/manageScores', function (req, res) {
     })};
 
     if (req.body.uStudio) {
+    	if (scoreID == null) {
+			console.log("Missing required input, not updated")
+			return;
+		}
 		var sql = "UPDATE scores SET imdb, rt_critic, rt_audience WHERE movie_id = ?";
     	mysql.pool.query(sql, [scoreIMDB, scoreRTC, scoreRTA, scoreID], function(err, rows, fields) {
 			if(err){
@@ -379,6 +433,10 @@ router.post('/manageScores', function (req, res) {
     })};
   	
 	if (req.body.dStudio) {
+		if (scoreID == null) {
+			console.log("Missing required input, not deleted")
+			return;
+		}
 		var sql = "DELETE FROM scores WHERE movie_id = ?";
     	mysql.pool.query(sql, [scoreID], function(err, rows, fields) {
 			if(err){
