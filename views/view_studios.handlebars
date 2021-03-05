@@ -1,4 +1,6 @@
-<h2>Studios</h2>
+<div class="searchForm">
+<table class="outputTable">
+<h2>View:</h2>
 <table class="outputTable">
 	<thead>
 	<tr>
@@ -16,4 +18,23 @@
 		</tr>
 		{{/each}}
 	</tbody>
-</table>
+</table><br><br>
+</div><br><br>
+
+<div class="manageForm">
+  <h2>Studios:</h2>
+  <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageStudios" method="POST">
+    <label>Name*:</label>
+    <input type="text" name="studioName"><br>
+    <label>HQ Location*:</label>
+    <input type="text" name="studioHQ"><br>
+    <label>Date Founded*:</label>
+    <input type="date" name="studioDate"><br><br>
+    <p>* = required attribute</p>
+    
+    <input type="submit" name="iStudio" value="Insert Studio">
+    <input type="submit" name="uStudio" value="Update Studio">
+    <input type="submit" name="dStudio" value="Delete Studio">
+    <br><br>
+  </form>
+</div>

@@ -1,4 +1,6 @@
-<h2>Scores</h2>
+<div class="searchForm">
+<table class="outputTable">
+<h2>View:</h2>
 <table class="outputTable">
 	<thead>
 	<tr>
@@ -18,4 +20,25 @@
 		</tr>
 		{{/each}}
 	</tbody>
-</table>
+</table><br><br>
+</div><br><br>
+
+<div class="manageForm">
+  <h2>Scores:</h2>
+  <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageScores" method="POST">
+    <label>Movie ID*:</label>
+    <input type="text" name="scoreID"><br>
+    <label>IMDB Score:</label>
+    <input type="number" name="scoreIMDB"><br>
+    <label>Rotten Tomatoes Critic Score:</label>
+    <input type="number" name="scoreRTC"><br>
+    <label>Rotten Tomatoes Audience Score:</label>
+    <input type="number" name="scoreRTA"><br><br>
+    <p>* = required attribute</p>
+
+    <input type="submit" name="iScore" value="Insert Score">
+    <input type="submit" name="uScore" value="Update Score">
+    <input type="submit" name="dScore" value="Delete Score">
+    <br><br>
+  </form>
+</div>

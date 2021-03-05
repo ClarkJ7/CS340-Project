@@ -1,4 +1,6 @@
-<h2>Actors</h2>
+<div class="searchForm">
+<table class="outputTable">
+<h2>View:</h2>
 <table class="outputTable">
 	<thead>
 	<tr>
@@ -20,4 +22,27 @@
 		</tr>
 		{{/each}}
 	</tbody>
-</table>
+</table><br>
+</div><br><br>
+
+<div class="manageForm">
+  <h2>Manage:</h2>
+  <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageActor" method="POST">
+    <label>Name*:</label>
+    <input type="text" name="actorName"><br>
+    <label>Gender*:</label>
+    <input type="text" name="actorGender"><br>
+    <label>Nationality*:</label>
+    <input type="text" name="actorNation"><br>
+    <label>Date of Birth*:</label>
+    <input type="date" name="actorDOB"><br>
+    <label># of Roles*:</label>
+    <input type="number" name="actorRoles"><br><br>
+    <p>* = required attribute</p>
+
+    <input type="submit" name="iActor" value="Insert Actor">
+    <input type="submit" name="uActor" value="Update Actor">
+    <input type="submit" name="dActor" value="Delete Actor">
+    <br><br>
+  </form>
+</div>

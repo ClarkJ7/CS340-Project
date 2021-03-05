@@ -1,5 +1,6 @@
+<div class="searchForm">
 <table class="outputTable">
-<h2>Movies</h2>
+<h2>View:</h2>
 	<thead>
 		<th>Movie ID</th>
 		<th>Title</th>
@@ -24,4 +25,31 @@
 		</tr>
 		{{/each}}
 	</tbody>
-</table>
+</table><br>
+</div><br><br>
+
+<div class="manageForm">
+ <h2>Manage:</h2>
+  <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageMovie" method="POST">
+    <label>Movie ID*:</label>
+    <input type="number" name="movieID"><br>
+    <label>Title*:</label>
+    <input type="text" name="movieTitle"><br>
+    <label>Franchise:</label>
+    <input type="text" name="movieFranchise"><br>
+    <label>Genre:</label>
+    <input type="text" name="movieGenre"><br>
+    <label>Budget:</label>
+    <input type="number" name="movieBudget"><br>
+    <label>Revenue:</label>
+    <input type="number" name="movieRevenue"><br>
+    <label>Director:</label>
+    <input type="text" name="movieDirector"><br>
+    <label>Studio:</label>
+    <input type="text" name="movieStudio"><br><br>
+    <p>* = required attribute</p>
+
+    <input type="submit" name="iMovie" value="Insert Movie">
+    <input type="submit" name="uMovie" value="Update Movie">
+    <input type="submit" name="dMovie" value="Delete Movie"><br><br>
+</div>

@@ -12,7 +12,7 @@
  	float: left;
   	color: black;
   	text-align: center;
- 	width: 33.33%;
+ 	width: 50%;
   	padding: 15px 0px;
   	font-size: 20px;
  	text-decoration:none;
@@ -29,6 +29,44 @@
 .navigationMenu a.activeNav {
   	background-color: grey;
   	color: white;
+}
+
+.dropdown {
+	z-index: 1;
+}
+
+.dropdown a {
+  	float: left;
+  	color: black;
+  	text-align: center;
+ 	width: 50%;
+ 	padding: 15px 0px;
+  	font-size: 20px;
+ 	text-decoration:none;
+ 	z-index: 1;
+ }
+
+.dropdownList {
+  	display: none;
+  	position: absolute;
+  	right: 0;
+ 	background-color: white;
+ 	width: 50%;
+  	z-index: 1;
+}
+
+.dropdownList a {
+  color: black;
+  width: 100%;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdownList {
+	display: block;
+}
+
+.dropdown:hover {
+	background-color: black;
 }
 
 .searchForm {

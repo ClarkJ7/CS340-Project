@@ -1,5 +1,6 @@
-<h2>Characters</h2>
+<div class="searchForm">
 <table class="outputTable">
+<h2>View:</h2>
 	<thead>
 	<tr>
 		<th>Name</th>
@@ -16,4 +17,23 @@
 		</tr>
 		{{/each}}
 	</tbody>
-</table>
+</table><br><br>
+</div><br><br>
+
+<div class="manageForm">
+  <h2>Manage:</h2>
+  <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageCharacter" method="POST">
+    <label>Name*:</label>
+    <input placeholder="Name" name="charName"><br>
+    <label>Are they a Villain?*</label>
+    <input type="checkbox" name="charVillain"><br>
+    <label>Creation Date*:</label>
+    <input type="date" name="charDate"><br><br>
+    <p>* = required attribute</p>
+
+    <input type="submit" name="iChar" value="Insert Character">
+    <input type="submit" name="uChar" value="Update Character">
+    <input type="submit" name="dChar" value="Delete Character">
+    <br><br>
+  </form>
+</div>

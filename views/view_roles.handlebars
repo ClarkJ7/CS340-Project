@@ -1,4 +1,6 @@
-<h2>Roles</h2>
+<div class="searchForm">
+<table class="outputTable">
+<h2>View:</h2>
 <table class="outputTable">
 	<thead>
 	<tr>
@@ -18,4 +20,25 @@
 		</tr>
 		{{/each}}
 	</tbody>
-</table>
+</table><br>
+</div><br><br>
+
+<div class="manageForm">
+  <h2>Roles:</h2>
+  <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageRoles" method="POST">
+    <label>Movie ID*:</label>
+    <input type="text" name="roleMovie"><br>
+    <label>Actor:</label>
+    <input type="text" name="roleActor"><br>
+    <label>Character*:</label>
+    <input type="text" name="roleChar"><br>
+    <label>Main Role?</label>
+    <input type="checkbox" name="roleMain"><br><br>
+    <p>* = required attribute</p>
+
+    <input type="submit" name="iRole" value="Insert Role">
+    <input type="submit" name="uRole" value="Update Role">
+    <input type="submit" name="dRole" value="Delete Role">
+    <br><br>
+  </form>
+</div><br>

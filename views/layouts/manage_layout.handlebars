@@ -18,12 +18,14 @@
 
 <br><br><br><br>
 
+{{{body}}}
+
 <div class="manageForm">
   <h2>Movies:</h2>
   <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageMovie" method="POST">
-    <label>Movie ID:</label>
+    <label>Movie ID*:</label>
     <input type="number" name="movieID"><br>
-    <label>Title:</label>
+    <label>Title*:</label>
     <input type="text" name="movieTitle"><br>
     <label>Franchise:</label>
     <input type="text" name="movieFranchise"><br>
@@ -48,11 +50,11 @@
 <div class="manageForm">
   <h2>Characters:</h2>
   <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageCharacter" method="POST">
-    <label>Name:</label>
+    <label>Name*:</label>
     <input placeholder="Name" name="charName"><br>
-    <label>Are they a Villain?</label>
+    <label>Are they a Villain?*</label>
     <input type="checkbox" name="charVillain"><br>
-    <label>Creation Date:</label>
+    <label>Creation Date*:</label>
     <input type="date" name="charDate"><br><br>
 
     <input type="submit" name="iChar" value="Insert Character">
@@ -65,15 +67,15 @@
 <div class="manageForm">
   <h2>Actors:</h2>
   <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageActor" method="POST">
-    <label>Name:</label>
+    <label>Name*:</label>
     <input type="text" name="actorName"><br>
-    <label>Gender:</label>
+    <label>Gender*:</label>
     <input type="text" name="actorGender"><br>
-    <label>Nationality:</label>
+    <label>Nationality*:</label>
     <input type="text" name="actorNation"><br>
-    <label>Date of Birth:</label>
+    <label>Date of Birth*:</label>
     <input type="date" name="actorDOB"><br>
-    <label># of Roles:</label>
+    <label># of Roles*:</label>
     <input type="number" name="actorRoles"><br><br>
 
     <input type="submit" name="iActor" value="Insert Actor">
@@ -86,11 +88,11 @@
 <div class="manageForm">
   <h2>Roles:</h2>
   <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageRoles" method="POST">
-    <label>Movie ID:</label>
+    <label>Movie ID*:</label>
     <input type="text" name="roleMovie"><br>
     <label>Actor:</label>
     <input type="text" name="roleActor"><br>
-    <label>Character:</label>
+    <label>Character*:</label>
     <input type="text" name="roleChar"><br>
     <label>Main Role?</label>
     <input type="checkbox" name="roleMain"><br><br>
@@ -105,11 +107,11 @@
 <div class="manageForm">
   <h2>Studios:</h2>
   <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageStudios" method="POST">
-    <label>Name:</label>
+    <label>Name*:</label>
     <input type="text" name="studioName"><br>
-    <label>HQ Location:</label>
+    <label>HQ Location*:</label>
     <input type="text" name="studioHQ"><br>
-    <label>Date Founded:</label>
+    <label>Date Founded*:</label>
     <input type="date" name="studioDate"><br><br>
     
     <input type="submit" name="iStudio" value="Insert Studio">
@@ -122,7 +124,7 @@
 <div class="manageForm">
   <h2>Scores:</h2>
   <form action="http://flip1.engr.oregonstate.edu:6547/manage/manageScores" method="POST">
-    <label>Movie ID:</label>
+    <label>Movie ID*:</label>
     <input type="text" name="scoreID"><br>
     <label>IMDB Score:</label>
     <input type="number" name="scoreIMDB"><br>

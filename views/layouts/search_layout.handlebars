@@ -7,36 +7,44 @@
 
 <body>
   <div class="banner">
-    <h1>Search Data</h1>
+    <h1>View Data</h1>
   </div>
-
   <div class="navigationMenu">
-    <a class="activeNav" href="/search">Search Data</a>
-    <a href="/manage">Manage Data</a>
-    <a href="/view">View Data</a>
-  </div>
+      <a class="activeNav" href="/search">Search Data</a>
+      <div class="dropdown">
+        <a href="/view">View Data</a>
+      <div class="dropdownList">
+        <a href="/view/movies">Movies</a>
+        <a href="/view/actors">Actors</a>
+        <a href="/view/characters">Characters</a>
+        <a href="/view/roles">Roles</a>
+        <a href="/view/studios">Studios</a>
+        <a href="/view/scores">Scores</a>
+      </div>
+      </div>
+  </div><br>
 
 <br><br><br><br>
 
 <div class="searchForm">
   <h2>Movie Search:</h2>
-  <form action="http://flip1.engr.oregonstate.edu:6547/search/movieSearch" method="get">
+  <form action="http://flip1.engr.oregonstate.edu:6547/search/movieSearch" method="POST">
     <table>
       <tr>
         <td>
           <label>By Title:</label>
             <input type="text" name="titleSearch">
-          <input type="submit" value="Search">
+          <input type="submit" name="titleSubmit" value="Search">
         </td>
         <td>
           <label>By ID:</label>
             <input type="text" name="idSearch">
-          <input type="submit" value="Search">
+          <input type="submit" name="idSubmit" value="Search">
         </td>
         <td>
           <label>By Director:</label>
             <input type="text" name="directorSearch">
-          <input type="submit" value="Search">
+          <input type="submit"  name="directorSubmit" value="Search">
         </td>
         </tr>
     </table>
