@@ -70,7 +70,7 @@ router.post('/manageMovie', function (req, res) {
 		var sql = "INSERT INTO movies (movie_id, movie_title, franchise, genre, budget, revenue, director, studio_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     	mysql.pool.query(sql, [movieID, movieTitle, movieFranchise, movieGenre, movieBudget, movieRevenue, movieDirector, movieStudio], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			console.log(err);
       		return;
     		}
     		console.log("Movie " + movieTitle + " was added")
@@ -85,7 +85,7 @@ router.post('/manageMovie', function (req, res) {
 		var sql = "UPDATE movies SET movie_title = ?, franchise = ?, genre = ?, budget = ?, revenue = ?, director = ?, studio_name = ? WHERE movie_id = ?";
     	mysql.pool.query(sql, [movieTitle, movieFranchise, movieGenre, movieBudget, movieRevenue, movieDirector, movieStudio, movieID], function(err, rows, fields) {
 			if(err){
-      			//next(err);
+      			console.log(err);
       		return;
     		}
     		console.log("Movie " + movieTitle + " was updated")
@@ -99,7 +99,7 @@ router.post('/manageMovie', function (req, res) {
 		var sql = "DELETE FROM movies WHERE movie_id = ?";
     	mysql.pool.query(sql, [movieID], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			console.log(err);
       		return;
     		}
     		console.log("Movie " + movieTitle + " was deleted")
@@ -133,7 +133,7 @@ router.post('/manageCharacter', function (req, res) {
 		var sql = "INSERT INTO characters (character_name, is_villain, creation_date) VALUES (?, ?, ?)";
     	mysql.pool.query(sql, [charName, charVillain, charDate], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			console.log(err);
       		return;
     		}
     		console.log("Character " + charName + " was added")
@@ -148,7 +148,7 @@ router.post('/manageCharacter', function (req, res) {
 		var sql = "UPDATE characters SET is_villain = ?, creation_date = ? WHERE character_name = ?";
     	mysql.pool.query(sql, [charVillain, charDate, charName], function(err, rows, fields) {
 			if(err){
-      			//next(err);
+      			console.log(err);
       		return;
     		}
     		console.log("Character " + charName + " was updated")
@@ -162,7 +162,7 @@ router.post('/manageCharacter', function (req, res) {
 		var sql = "DELETE FROM characters WHERE character_name = ?";
     	mysql.pool.query(sql, [charName], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			console.log(err);
       		return;
     		}
     		console.log("Character " + charName + " was deleted")
@@ -209,7 +209,7 @@ router.post('/manageActor', function (req, res) {
 		var sql = "INSERT INTO actors (actor_name, gender, nationality, dob, credited_roles) VALUES (?, ?, ?, ?, ?)";
     	mysql.pool.query(sql, [actorName, actorGender, actorNation, actorDOB, actorRoles], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			console.log(err);
       		return;
     		}
     		console.log("Actor " + actorName + " was added")
@@ -224,7 +224,7 @@ router.post('/manageActor', function (req, res) {
 		var sql = "UPDATE actors SET gender = ?, nationality = ?, dob = ?, credited_roles = ? WHERE actor_name = ?";
     	mysql.pool.query(sql, [actorGender, actorNation, actorDOB, actorRoles, actorName], function(err, rows, fields) {
 			if(err){
-      			//next(err);
+      			console.log(err);
       		return;
     		}
     		console.log("Actor " + actorName + " was updated")
@@ -238,7 +238,7 @@ router.post('/manageActor', function (req, res) {
 		var sql = "DELETE FROM actors WHERE actor_name = ?";
     	mysql.pool.query(sql, [actorName], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			console.log(err);
       		return;
     		}
     		console.log("Actor " + actorName + " was deleted")
@@ -279,7 +279,7 @@ router.post('/manageRoles', function (req, res) {
 		var sql = "INSERT INTO roles (movie_id, actor_name, character_name, main_role) VALUES (?, ?, ?, ?)";
     	mysql.pool.query(sql, [roleMovie, roleActor, roleChar, roleMain], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			console.log(err);
       		return;
     		}
     		console.log("Role was added")
@@ -294,7 +294,7 @@ router.post('/manageRoles', function (req, res) {
 		var sql = "UPDATE roles SET actor_name = ?, main_role = ? WHERE movie_id = ? AND character_name = ?";
     	mysql.pool.query(sql, [roleActor, roleMain, roleMovie, roleChar], function(err, rows, fields) {
 			if(err){
-      			//next(err);
+      			console.log(err);
       		return;
     		}
     		console.log("Role was updated")
@@ -308,7 +308,7 @@ router.post('/manageRoles', function (req, res) {
 		var sql = "DELETE FROM roles WHERE movie_id = ? AND character_name = ?";
     	mysql.pool.query(sql, [roleMovie, roleChar], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			console.log(err);
       		return;
     		}
     		console.log(roleChar + "'s role from " + roleMovie + " was deleted")
@@ -342,7 +342,7 @@ router.post('/manageStudios', function (req, res) {
 		var sql = "INSERT INTO studios (name, hq_location, founding_date) VALUES (?, ?, ?)";
     	mysql.pool.query(sql, [studioName, studioHQ, studioDate], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			console.log(err);
       		return;
     		}
     		console.log("Studio was added")
@@ -357,7 +357,7 @@ router.post('/manageStudios', function (req, res) {
 		var sql = "UPDATE studios SET hq_location = ?, founding_date = ? WHERE name = ?";
     	mysql.pool.query(sql, [studioHQ, studioDate, studioName], function(err, rows, fields) {
 			if(err){
-      			//next(err);
+      			console.log(err);
       		return;
     		}
     		console.log("Studio was updated")
@@ -371,7 +371,7 @@ router.post('/manageStudios', function (req, res) {
 		var sql = "DELETE FROM studios WHERE name = ?";
     	mysql.pool.query(sql, [studioName], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			console.log(err);
       		return;
     		}
     		console.log("Studio was deleted")
@@ -411,7 +411,7 @@ router.post('/manageScores', function (req, res) {
 		var sql = "INSERT INTO scores (movie_id, imdb, rt_critic, rt_audience) VALUES (?, ?, ?, ?)";
     	mysql.pool.query(sql, [scoreID, scoreIMDB, scoreRTC, scoreRTA], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			console.log(err);
       		return;
     		}
     		console.log("Score was added")
@@ -426,7 +426,7 @@ router.post('/manageScores', function (req, res) {
 		var sql = "UPDATE scores SET imdb = ?, rt_critic = ?, rt_audience = ? WHERE movie_id = ?";
     	mysql.pool.query(sql, [scoreIMDB, scoreRTC, scoreRTA, scoreID], function(err, rows, fields) {
 			if(err){
-      			//next(err);
+      			console.log(err);
       		return;
     		}
     		console.log("Score was updated")
@@ -440,7 +440,7 @@ router.post('/manageScores', function (req, res) {
 		var sql = "DELETE FROM scores WHERE movie_id = ?";
     	mysql.pool.query(sql, [scoreID], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			console.log(err);
       		return;
     		}
     		console.log("Score was deleted")
