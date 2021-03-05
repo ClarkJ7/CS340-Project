@@ -82,10 +82,10 @@ router.post('/manageMovie', function (req, res) {
 			console.log("Missing required input, not updated")
 			return;
 		}
-		var sql = "UPDATE movies SET movie_title, franchise, genre, budget, revenue, director, studio_name WHERE movie_id = ?";
-    	mysql.pool.query(sql, [ movieTitle, movieFranchise, movieGenre, movieBudget, movieRevenue, movieDirector, movieStudio, movieID], function(err, rows, fields) {
+		var sql = "UPDATE movies SET movie_title = ?, franchise = ?, genre = ?, budget = ?, revenue = ?, director = ?, studio_name = ? WHERE movie_id = ?";
+    	mysql.pool.query(sql, [movieTitle, movieFranchise, movieGenre, movieBudget, movieRevenue, movieDirector, movieStudio, movieID], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			//next(err);
       		return;
     		}
     		console.log("Movie " + movieTitle + " was updated")
@@ -148,7 +148,7 @@ router.post('/manageCharacter', function (req, res) {
 		var sql = "UPDATE characters SET is_villain = ?, creation_date = ? WHERE character_name = ?";
     	mysql.pool.query(sql, [charVillain, charDate, charName], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			//next(err);
       		return;
     		}
     		console.log("Character " + charName + " was updated")
@@ -224,7 +224,7 @@ router.post('/manageActor', function (req, res) {
 		var sql = "UPDATE actors SET gender = ?, nationality = ?, dob = ?, credited_roles = ? WHERE actor_name = ?";
     	mysql.pool.query(sql, [actorGender, actorNation, actorDOB, actorRoles, actorName], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			//next(err);
       		return;
     		}
     		console.log("Actor " + actorName + " was updated")
@@ -291,10 +291,10 @@ router.post('/manageRoles', function (req, res) {
 			console.log("Missing required input, not updated")
 			return;
 		}
-		var sql = "UPDATE roles SET actor_name, main_role WHERE movie_id = ? AND character_name = ?";
+		var sql = "UPDATE roles SET actor_name = ?, main_role = ? WHERE movie_id = ? AND character_name = ?";
     	mysql.pool.query(sql, [roleActor, roleMain, roleMovie, roleChar], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			//next(err);
       		return;
     		}
     		console.log("Role was updated")
@@ -354,10 +354,10 @@ router.post('/manageStudios', function (req, res) {
 			console.log("Missing required input, not updated")
 			return;
 		}
-		var sql = "UPDATE studios SET hq_location, founding_date WHERE name = ?";
-    	mysql.pool.query(sql, [roleActor, roleMain, roleMovie, roleChar], function(err, rows, fields) {
+		var sql = "UPDATE studios SET hq_location = ?, founding_date = ? WHERE name = ?";
+    	mysql.pool.query(sql, [studioHQ, studioDate, studioName], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			//next(err);
       		return;
     		}
     		console.log("Studio was updated")
@@ -423,10 +423,10 @@ router.post('/manageScores', function (req, res) {
 			console.log("Missing required input, not updated")
 			return;
 		}
-		var sql = "UPDATE scores SET imdb, rt_critic, rt_audience WHERE movie_id = ?";
+		var sql = "UPDATE scores SET imdb = ?, rt_critic = ?, rt_audience = ? WHERE movie_id = ?";
     	mysql.pool.query(sql, [scoreIMDB, scoreRTC, scoreRTA, scoreID], function(err, rows, fields) {
 			if(err){
-      			next(err);
+      			//next(err);
       		return;
     		}
     		console.log("Score was updated")
