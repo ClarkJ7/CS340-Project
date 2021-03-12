@@ -40,13 +40,14 @@ router.post('/movieSearch', function (req, res) {
 	context = {};
 
 	if (req.body.idSubmit) {
-		var sql = "SELECT * FROM movies WHERE movie_id = ?";
-    	mysql.pool.query(sql, [idSearch], function(err, rows, fields) {
+		var sql = "SELECT * FROM movies WHERE movie_id =?;SELECT character_name, actor_name FROM roles WHERE movie_id=?";
+    	mysql.pool.query(sql, [idSearch, idSearch], function(err, rows, fields) {
 			if(err){
       			next(err);
       		return;
     		}
-    		context.movies = rows;
+    		context.movies = rows[0];
+        context.roles = rows[1];
     		res.render('search_movieid', context);
     })};
 

@@ -23,4 +23,19 @@
 		</tr>
 		{{/each}}
 	</tbody>
+</table><br>
+
+<table class="outputTable">
+	<thead>
+		<th>Character</th>
+		<th>Actor</th>
+	</thead>
+	<tbody>
+		{{#each roles}}
+		<tr>
+			<td>{{this.character_name}}</td>
+			<td>{{this.actor_name}}</td>
+		</tr>
+		{{/each}}
+	</tbody>
 </table>
