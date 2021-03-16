@@ -1,9 +1,10 @@
 /* Banner at top of screen */
 .banner {
+	position: relative;
   	text-align: center;
  	color: black;
   	font-size: 20px;
- 	height: 100px;
+ 	height: 150px;
  	border: 5px solid black;
 }
 
